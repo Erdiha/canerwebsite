@@ -19,3 +19,112 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Signature Animation */
+.signature-animation {
+  display: inline-block;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid white;
+  animation: typing 3s steps(40, end) forwards, blink-caret 0.5s step-end infinite, caret-fade-out 1s ease 3s forwards;
+}
+
+/* Typing effect */
+@keyframes typing {
+  0% {
+    width: 0;
+   
+  }
+
+  100% {
+    width: 100%;
+   
+  }
+}
+
+/* Blinking cursor effect */
+@keyframes blink-caret {
+
+  0%,
+  100% {
+    border-color: transparent;
+  }
+
+  50% {
+    border-color: #B8001F;
+    
+  }
+}
+
+/* Caret fade-out effect */
+@keyframes caret-fade-out {
+  0% {
+    border-color: #B8001F;
+  }
+
+  100% {
+    border-color: transparent;
+  }
+}
+
+/* globals.css */
+
+/* Paintbrush Stroke Animation */
+/* globals.css */
+
+/* Rainbow Paint Stroke */
+@keyframes paint-stroke {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+/* globals.css */
+
+@keyframes brush-reveal {
+  0% {
+    background-position: 100% 0;
+    /* Start fully scrolled to the right */
+  }
+
+  100% {
+    background-position: 0 0;
+    /* End with full stroke visible */
+  }
+}
+.drip {
+  position: absolute;
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+  /* Default color, will be randomized in JavaScript */
+  border-radius: 0% 100% 100% 100%;
+  /* Creates the teardrop shape */
+  transform: rotate(45deg);
+  /* Fixed rotation for teardrop shape */
+  opacity: 0.9;
+  animation: dripAnimation 4s ease-out forwards;
+}
+
+@keyframes dripAnimation {
+  0% {
+    transform: translateY(0) rotate(45deg);
+    /* Initial static rotation */
+    opacity: 1;
+      width: 2rem;
+        height: 2rem;
+  }
+
+  100% {
+    transform: translateY(100vh) rotate(45deg);
+    /* Keeps the static rotation while falling */
+    opacity: 0;
+      width: 5rem;
+        height: 5rem;
+  }
+}
