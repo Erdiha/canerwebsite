@@ -1,18 +1,27 @@
 'use client';
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
+import { useWindowSize } from './helpers/hooks/useWindowSize';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const size = useWindowSize();
+  console.log(size);
 
   return (
-    <nav className="bg-background text-white p-4 fixed max-h-[10vh] h-fit w-screen z-10">
-      <div className="container mx-auto flex justify-between items-center">
+    <nav className="bg-background text-background fixed  min-h-[7vh]    items-center flex z-[99999]  w-full md:w-[90%] max-w-[120rem]">
+      <div className="flex w-full h-full  justify-between items-center  px-5 ">
         {/* Signature Animation */}
         <Link href="/">
-          <h1 className="text-2xl font-bold signature-animation">
-            Caner Dogan
-          </h1>
+          <Image
+            alt="landing page image"
+            src="/caner1.png"
+            objectFit="cover"
+            width={size.width < 460 ? 40 : 75}
+            height={size.height < 460 ? 40 : 75}
+            className="flex bg-white shadow-2xl rounded-full border-4 border-[#EC8305]  h-fit "
+          />
         </Link>
 
         {/* Mobile menu button */}
@@ -37,25 +46,34 @@ export default function Navbar() {
         </button>
 
         {/* Desktop menu items */}
-        <div className="hidden md:flex space-x-6">
-          <Link href="/aboutme" className="px-3 py-2 rounded hover:bg-gray-700">
+        <div className="hidden md:flex space-x-6 text-white w-fit  ">
+          <Link
+            href="/exhibition"
+            className="px-3 py-2 rounded hover:bg-gray-600"
+          >
+            Exhibition
+          </Link>
+          <Link href="/aboutme" className="px-3 py-2 rounded hover:bg-gray-600">
             About Me
           </Link>
-          <Link href="/gallery" className="px-3 py-2 rounded hover:bg-gray-700">
-            Gallery
+          <Link
+            href="/contact"
+            className="px-3 py-2 rounded hover:bg-gray-600 "
+          >
+            Contact
           </Link>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed top-0 left-0 h-screen w-screen bg-gray-800 transform opacity-90 ${
+        className={`absolute top-0 left-0 h-screen  w-screen bg-gray-200 transform opacity-90 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div className="flex justify-end p-4">
           <button
-            className="text-white focus:outline-none"
+            className="text-background focus:outline-none font-bold"
             onClick={() => setIsOpen(false)}
           >
             <svg
@@ -68,16 +86,24 @@ export default function Navbar() {
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth="2"
+                strokeWidth="3"
                 d="M6 18L18 6M6 6l12 12"
               ></path>
             </svg>
           </button>
         </div>
 
-        <div className="flex flex-col items-center space-y-4 justify-center h-full">
-          <Link onClick={() => setIsOpen(!isOpen)} href="/">
+        <div className="flex flex-col items-center space-y-4 justify-center  h-screen w-screen font-semibold text-pretty">
+          {/* <Link onClick={() => setIsOpen(!isOpen)} href="/">
             <h1 className="text-2xl font-bold font-">Caner Dogan</h1>
+          </Link> */}
+
+          <Link
+            href="/exhibition"
+            className="text-xl px-3 py-2 rounded hover:bg-gray-700"
+            onClick={() => setIsOpen(false)}
+          >
+            Exhibition
           </Link>
           <Link
             href="/aboutme"
@@ -87,11 +113,11 @@ export default function Navbar() {
             About Me
           </Link>
           <Link
-            href="/gallery"
+            href="/contact"
             className="text-xl px-3 py-2 rounded hover:bg-gray-700"
             onClick={() => setIsOpen(false)}
           >
-            Gallery
+            Contact
           </Link>
         </div>
       </div>

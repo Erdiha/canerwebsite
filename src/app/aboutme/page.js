@@ -2,12 +2,12 @@ import { Container } from 'postcss';
 
 export default function Aboutme() {
   return (
-    <div className="w-screen h-screen flex justify-center items-center self-center text-center">
-      <div className="md:w-1/2 md:h-1/2 px-5      ">
-        <h1 className="w-full h-fit flex justify-start text-xl py-5">
+    <div className="h-full 2xl:max-w-[60rem] mx-auto flex justify-center items-center self-center text-center">
+      <div className="px-5 flex justify-evenly items-center">
+        <p className="w-1/4 h-full flex text-2xl justify-center items-center capitalize">
           Who Am I
-        </h1>
-        <article className="w-full h-full flex text-start  text-xms">
+        </p>
+        <article className="w-3/4 h-full flex text-start  text-xms border-l-2 px-3 to-black break-words">
           Where does it come from? Contrary to popular belief, Lorem Ipsum is
           not simply random text. It has roots in a piece of classical Latin
           literature from 45 BC, making it over 2000 years old. Richard

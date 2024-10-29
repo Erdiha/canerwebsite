@@ -1,4 +1,3 @@
-// app/layout.js
 import './globals.css';
 import Navbar from '@/components/Navbar';
 
@@ -22,9 +21,13 @@ export default function RootLayout({ children }) {
           rel="stylesheet"
         />
       </head>
-      <body className="bg-background antialiased text-white">
-        <Navbar />
-        {children}
+      <body className="bg-background antialiased text-white min-h-screen min-w-screen">
+        <div className="flex flex-col min-h-screen">
+          <div className="flex justify-center items-center w-full h-[7vh]">
+            <Navbar />
+          </div>
+          <div style={{ height: '93vh', overflowY: 'auto' }}>{children}</div>
+        </div>
       </body>
     </html>
   );

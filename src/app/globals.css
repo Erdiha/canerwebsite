@@ -18,85 +18,51 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
 }
-
 /* Signature Animation */
+/* Hide text initially */
 .signature-animation {
   display: inline-block;
   font-family: 'Dancing Script', cursive;
-  font-size: 1.5rem;
-  white-space: nowrap;
+  position: relative;
+  color: white;
   overflow: hidden;
-  border-right: 0.15em solid white;
-  animation: typing 3s steps(40, end) forwards, blink-caret 0.5s step-end infinite, caret-fade-out 1s ease 3s forwards;
+  white-space: nowrap;
+  animation: typing 5s steps(50, end) forwards, caret-fade-out 3s 5s forwards;
 }
 
-/* Typing effect */
-@keyframes typing {
-  0% {
-    width: 0;
-   
-  }
+/* Caret */
+.signature-animation::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  animation: blink-caret 0.5s step-end infinite, caret-fade-out 3s 5s forwards; }
 
-  100% {
-    width: 100%;
-   
+
+@keyframes move-up {
+  0%{
+    translate: 0vh;
+  }
+  100%{
+    tranlate:-30vh;
   }
 }
 
-/* Blinking cursor effect */
+/* Blinking caret */
 @keyframes blink-caret {
 
   0%,
   100% {
-    border-color: transparent;
+    opacity: 0;
   }
 
   50% {
-    border-color: #B8001F;
-    
+    opacity: 0;
   }
 }
 
-/* Caret fade-out effect */
-@keyframes caret-fade-out {
-  0% {
-    border-color: #B8001F;
-  }
 
-  100% {
-    border-color: transparent;
-  }
-}
-
-/* globals.css */
-
-/* Paintbrush Stroke Animation */
-/* globals.css */
-
-/* Rainbow Paint Stroke */
-@keyframes paint-stroke {
-  0% {
-    width: 0;
-  }
-
-  100% {
-    width: 100%;
-  }
-}
-/* globals.css */
-
-@keyframes brush-reveal {
-  0% {
-    background-position: 100% 0;
-    /* Start fully scrolled to the right */
-  }
-
-  100% {
-    background-position: 0 0;
-    /* End with full stroke visible */
-  }
-}
 .drip {
   position: absolute;
   width: 2rem;
@@ -127,4 +93,75 @@ body {
       width: 5rem;
         height: 5rem;
   }
+}
+
+/* Keyframe for Rotation */
+@keyframes rotation {
+  0% {
+    transform: rotateY(0deg) scale(1);
+  }
+
+  50%{
+    transform: rotateY(0deg) scale(3)
+  }
+  100%{
+    transform: rotateY(360deg) scale(1);
+  }
+  
+}
+
+/* Animation Class */
+.animate-rotation {
+  animation: rotation 2s ease-in-out 0.5s;
+  /* 2s duration with a 2s delay */
+}
+
+/* Scrollbar Styling for WebKit Browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+  /* Track background color */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: red;
+  /* Scrollbar thumb color */
+  border-radius: 50%;
+  /* Rounded corners for thumb */
+  border: 2px solid #f0f0f0;
+  /* Space between thumb and track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+   
+  /* Thumb color on hover */
+}
+
+/* Scrollbar Styling for Firefox */
+* {
+  scrollbar-width: thin;
+  /* Thin scrollbar width */
+  scrollbar-color: #EC8305 #f0f0f0;
+
+  /* Thumb and track colors */
+}
+
+/* Apply scrollbar styles only to the specific section */
+.scrollable-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scrollable-section::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+  border: 2px solid #f0f0f0;
 }
