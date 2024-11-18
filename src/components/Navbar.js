@@ -1,17 +1,18 @@
 'use client';
+
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useWindowSize } from './helpers/hooks/useWindowSize';
+import { IoCartOutline } from 'react-icons/io5';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const size = useWindowSize();
-  console.log(size);
 
   return (
-    <nav className="bg-background text-background fixed  min-h-[7vh]    items-center flex z-[99999]  w-full md:w-[90%] max-w-[120rem]">
-      <div className="flex w-full h-full  justify-between items-center  px-5 ">
+    <nav className="bg-background text-background fixed min-h-[7vh] items-center flex z-[99999] w-full md:w-[90%] max-w-[120rem]">
+      <div className="flex w-full h-full justify-between items-center px-5">
         {/* Signature Animation */}
         <Link href="/">
           <Image
@@ -20,7 +21,7 @@ export default function Navbar() {
             objectFit="cover"
             width={size.width < 460 ? 40 : 75}
             height={size.height < 460 ? 40 : 75}
-            className="flex bg-white shadow-2xl rounded-full border-4 border-[#EC8305]  h-fit "
+            className="flex bg-white shadow-2xl rounded-full border-4 border-[#EC8305] h-fit"
           />
         </Link>
 
@@ -46,7 +47,7 @@ export default function Navbar() {
         </button>
 
         {/* Desktop menu items */}
-        <div className="hidden md:flex space-x-6 text-white w-fit  ">
+        <div className="hidden md:flex space-x-6 text-white w-fit">
           <Link
             href="/exhibition"
             className="px-3 py-2 rounded hover:bg-gray-600"
@@ -56,18 +57,21 @@ export default function Navbar() {
           <Link href="/aboutme" className="px-3 py-2 rounded hover:bg-gray-600">
             About Me
           </Link>
-          <Link
-            href="/contact"
-            className="px-3 py-2 rounded hover:bg-gray-600 "
-          >
+          <Link href="/contact" className="px-3 py-2 rounded hover:bg-gray-600">
             Contact
+          </Link>
+          <Link
+            href="/cart"
+            className="p-3 hover:bg-gray-600 flex justify-center items-center shadow-xl border-l-[1px] border-l-[#EC8305]"
+          >
+            <IoCartOutline size={20} />
           </Link>
         </div>
       </div>
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`absolute top-0 left-0 h-screen  w-screen bg-gray-200 transform opacity-90 ${
+        className={`absolute top-0 left-0 h-screen w-screen bg-gray-200 transform opacity-90 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out md:hidden`}
       >
@@ -93,11 +97,7 @@ export default function Navbar() {
           </button>
         </div>
 
-        <div className="flex flex-col items-center space-y-4 justify-center  h-screen w-screen font-semibold text-pretty">
-          {/* <Link onClick={() => setIsOpen(!isOpen)} href="/">
-            <h1 className="text-2xl font-bold font-">Caner Dogan</h1>
-          </Link> */}
-
+        <div className="flex flex-col items-center space-y-4 justify-center h-screen w-screen font-semibold text-pretty">
           <Link
             href="/exhibition"
             className="text-xl px-3 py-2 rounded hover:bg-gray-700"

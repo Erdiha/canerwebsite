@@ -13,7 +13,7 @@ module.exports = {
       },
       colors: {
         background: '#243642',
-        foreground: '#629584',
+        foreground: '#ededed',
       },
     },
   },

@@ -95,7 +95,7 @@ const Exhibition = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 animate-slideUp">
           {images.map((image, index) => (
             <DraggableImage
               key={image.id}
