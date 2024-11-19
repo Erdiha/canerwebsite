@@ -41,7 +41,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex w-screen h-full">
+    <div className="mx-auto mw-full md:w-[90%] max-w-[120rem] scrollable-section text-background flex justify-center items-center h-full">
       <main
         className="flex flex-col items-center relative overflow-hidden w-full h-full z-[9999]"
         ref={containerRef}
@@ -61,14 +61,14 @@ export default function Home() {
           {/* Text with slide-up animation */}
           <span
             ref={textRef}
-            className="font-normal text-[2rem] md:text-[4.5rem] animate-slideUp font-signature"
+            className="font-normal text-[2rem] md:text-[4.5rem] animate-slideUp font-signature text-foreground"
             style={{ pointerEvents: 'none', userSelect: 'none' }}
           >
             Caner Dogan
           </span>
           <span
             className="text-[10px] aspect-square flex justify-center items-center
-            border-white border-[1px] rounded-full p-[3px] font-thin text-orange-500 animate-rotation"
+            border-white border-[2px] rounded-full p-[3px] font-thin text-orange-500 animate-rotation"
           >
             Artist
           </span>
